@@ -3,6 +3,7 @@ package com.reev.telokkaapp.ui.screen.home
 import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -23,7 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.reev.telokkaapp.data.PlaceRepository
+import com.reev.telokkaapp.di.Injection
+import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.components.Banner
 import com.reev.telokkaapp.ui.components.PlaceItem
 import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
@@ -50,7 +52,11 @@ fun TeLokkaAppPreview() {
 @Composable
 fun PlaceItemList(
     modifier: Modifier = Modifier,
-    viewModel: TeLokkaViewModel = viewModel(factory = ViewModelFactory(PlaceRepository()))
+    viewModel: HomeViewModel = viewModel(
+        factory = ViewModelFactory(
+            Injection.provideRepository()
+        )
+    )
 ) {
     val groupedPlaces by viewModel.groupedPlaces.collectAsState()
 
@@ -79,6 +85,7 @@ fun PlaceItemList(
                         modifier = Modifier
                             .fillMaxWidth()
                             .animateItemPlacement(tween(durationMillis = 100))
+                            .clickable {  }
                     )
                 }
             }

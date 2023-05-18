@@ -9,7 +9,7 @@ import com.reev.telokkaapp.model.Place
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class TeLokkaViewModel(private val repository: PlaceRepository): ViewModel(){
+class HomeViewModel(private val repository: PlaceRepository): ViewModel(){
     private val _groupedPlaces = MutableStateFlow(
         repository.getPlaces()
             .sortedBy { it.name }
@@ -25,16 +25,5 @@ class TeLokkaViewModel(private val repository: PlaceRepository): ViewModel(){
         _groupedPlaces.value = repository.searchPlaces(_query.value)
             .sortedBy { it.name }
             .groupBy { it.name[0] }
-    }
-}
-
-class ViewModelFactory(private val repository: PlaceRepository) :
-    ViewModelProvider.NewInstanceFactory() {
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(TeLokkaViewModel::class.java)) {
-            return TeLokkaViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
 }
