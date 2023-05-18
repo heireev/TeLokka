@@ -26,8 +26,7 @@ fun PlaceItem(
     modifier: Modifier = Modifier
 ) {
     Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.clickable { }
+        modifier = modifier
     ) {
         Card(
             shape = RoundedCornerShape(8.dp)
