@@ -81,12 +81,12 @@ private fun BottomBar(
             NavigationItem(
                 title = stringResource(R.string.menu_plan),
                 icon = Icons.Default.Create,
-                screen = Screen.Home
+                screen = Screen.Planning
             ),
             NavigationItem(
                 title = stringResource(R.string.menu_profile),
                 icon = Icons.Default.AccountCircle,
-                screen = Screen.Home
+                screen = Screen.Profile
             ),
         )
         BottomNavigation {

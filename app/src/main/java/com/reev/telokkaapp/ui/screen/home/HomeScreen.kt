@@ -40,7 +40,7 @@ fun HomeScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+fun TeLokkaAppPreview() {
     TeLokkaAppTheme {
         HomeScreen()
     }
@@ -55,7 +55,7 @@ fun PlaceItemList(
     val groupedPlaces by viewModel.groupedPlaces.collectAsState()
 
     Box(
-        modifier = modifier.padding(16.dp)
+        modifier = modifier.padding(horizontal = 16.dp).padding(top = 16.dp)
     ) {
         val scope = rememberCoroutineScope()
         val listState = rememberLazyListState()

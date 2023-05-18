@@ -28,7 +28,7 @@ fun Banner(
             contentDescription = "Banner Image",
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .height(160.dp)
+                .height(130.dp)
                 .fillMaxWidth()
         )
         SearchBar(query = query, onQueryChange = viewModel::search)
