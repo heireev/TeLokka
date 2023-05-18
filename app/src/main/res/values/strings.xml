@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">TeLokkaApp</string>
 
-    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_home">Home</string>
     <string name="menu_plan">Planning</string>
     <string name="menu_profile">Profile</string>
+
+    <string name="page_detail">Detail</string>
 
     <string name="category_mountains">Mountains</string>
     <string name="category_beaches">Beaches</string>

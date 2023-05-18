@@ -13,4 +13,16 @@ class PlaceRepository {
             it.name.contains(query, ignoreCase = true)
         }
     }
+
+    companion object {
+        @Volatile
+        private var instance: PlaceRepository? = null
+
+        fun getInstance(): PlaceRepository =
+            instance ?: synchronized(this) {
+                PlaceRepository().apply {
+                    instance = this
+                }
+            }
+    }
 }

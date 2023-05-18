@@ -1,4 +1,4 @@
-package com.reev.telokkaapp
+package com.reev.telokkaapp.ui.screen.home
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
