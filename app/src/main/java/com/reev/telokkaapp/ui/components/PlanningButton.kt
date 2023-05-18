@@ -15,12 +15,10 @@ import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
 fun PlanningButton(
     text: String,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
     onClick: () -> Unit,
 ){
     Button(
         onClick = onClick,
-        enabled = enabled,
         modifier = modifier
             .fillMaxWidth()
             .height(52.dp)

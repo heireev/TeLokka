@@ -62,7 +62,10 @@ fun TeLokkaApp(
             ) {
                 val id = it.arguments?.getString("placeId") ?: ""
                 DetailScreen(
-
+                    placeId = id,
+                    navigateBack = {
+                        navController.navigateUp()
+                    }
                 )
             }
         }

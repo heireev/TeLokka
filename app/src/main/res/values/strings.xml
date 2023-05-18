@@ -21,4 +21,7 @@
 
     <string name="touristspot_search">Find your tourist spot!</string>
     <string name="back">Back</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
+
 </resources>
