@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">TeLokkaApp</string>
+
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_plan">Planning</string>
+    <string name="menu_profile">Profile</string>
+
+    <string name="category_mountains">Mountains</string>
+    <string name="category_beaches">Beaches</string>
+    <string name="category_museums">Museums</string>
+    <string name="category_parks">Parks</string>
+    <string name="category_waterfalls">Waterfalls</string>
+    <string name="category_islands">Islands</string>
+    <string name="category_zoos">Zoos</string>
+    <string name="category_lakes">Lakes</string>
+    <string name="category_others">Others</string>
+
+    <string name="scroll_to_top">Scroll to Top</string>
+
+    <string name="touristspot_search">Find your tourist spot!</string>
 </resources>
