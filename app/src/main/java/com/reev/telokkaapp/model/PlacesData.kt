@@ -6,35 +6,35 @@ object PlacesData {
             "1",
             "Sarang Burung Waterfall",
             "waterfall",
-            "https://www.google.com/maps/place/Sarang+Burung+Waterfall/data=!4m7!3m6!1s0x2d9589806f7037dd:0x48c59eadccfbe97d!8m2!3d-4.3634978!4d119.6953338!16s%2Fg%2F11bxfxhzvr!19sChIJ3Tdwb4CJlS0Rfen7zK2exUg?authuser=0&hl=en&rclk=1",
+            "https://lh3.googleusercontent.com/p/AF1QipMJxMgGW9JyrNT1A0TfrAPuAkYIT0H-TTLz-NJQ=s1360-w1360-h1020",
             "https://www.google.com/maps/place/Sarang+Burung+Waterfall/data=!4m7!3m6!1s0x2d9589806f7037dd:0x48c59eadccfbe97d!8m2!3d-4.3634978!4d119.6953338!16s%2Fg%2F11bxfxhzvr!19sChIJ3Tdwb4CJlS0Rfen7zK2exUg?authuser=0&hl=en&rclk=1"
         ),
         Place(
             "2",
             "Waesai Waterfall",
             "waterfall",
-            "https://lh5.googleusercontent.com/p/AF1QipO00uI-oij6R51N_YynjqrbyedVtfRZafKwRBSL=w138-h92-k-no",
+            "https://lh3.googleusercontent.com/p/AF1QipMXu78BaEGWRWVMJNzD274sHrVw9llCr11u0w9m=s1360-w1360-h1020",
             "https://www.google.com/maps/place/Waesai+Waterfall/data=!4m7!3m6!1s0x2dbe3d26b9945b97:0xd240af00d9614b47!8m2!3d-4.5539866!4d119.7472339!16s%2Fg%2F11bzq3206h!19sChIJl1uUuSY9vi0RR0th2QCvQNI?authuser=0&hl=en&rclk=1"
         ),
         Place(
             "3",
             "Bukit Maddo",
             "mountain",
-            "https://lh5.googleusercontent.com/p/AF1QipOVFkOSee6afKgCfu8nbRfIbSK03vg_XBDSqY-2=w138-h92-k-no",
+            "https://www.localguidesconnect.com/t5/image/serverpage/image-id/520631i04E06545B5DC0051/image-size/large?v=v2&px=999",
             "https://www.google.com/maps/place/Bukit+Maddo/data=!4m7!3m6!1s0x2dbe25d9b9f868b7:0xa93b40def23fe9eb!8m2!3d-4.4761733!4d119.6365193!16s%2Fg%2F11fx8v2t4l!19sChIJt2j4udklvi0R6-k_8t5AO6k?authuser=0&hl=en&rclk=1"
         ),
         Place(
             "4",
             "Bukit Lakeppo",
             "mountain",
-            "https://lh5.googleusercontent.com/p/AF1QipME0r4ZruQgtOMG43x1TuXUskYc_xk0A0cIKooW=w138-h92-k-no",
+            "https://lh3.googleusercontent.com/p/AF1QipNKuvOufdqYHlEEftyT4y3SZHPZXHqB9hgLpNle=s1360-w1360-h1020",
             "https://www.google.com/maps/place/Bukit+Lakeppo/data=!4m7!3m6!1s0x2dbe237f95ad4da5:0x5e84dc08dcc2f95a!8m2!3d-4.5076856!4d119.6979892!16s%2Fg%2F11fzfbxq7v!19sChIJpU2tlX8jvi0RWvnC3AjchF4?authuser=0&hl=en&rclk=1"
         ),
         Place(
             "5",
             "Taman Wisata Bola Pitue",
             "park",
-            "https://lh5.googleusercontent.com/p/AF1QipO5o8b9N2_ZSXuOEDTpTkiin1bc9LIWpz9F6QXU=w122-h92-k-no",
+            "https://lh3.googleusercontent.com/p/AF1QipO5o8b9N2_ZSXuOEDTpTkiin1bc9LIWpz9F6QXU=s1360-w1360-h1020",
             "https://www.google.com/maps/place/Taman+Wisata+Bola+Pitue/data=!4m7!3m6!1s0x2d958807081a53bd:0x220f9cd1432fc4db!8m2!3d-4.3953002!4d119.6056649!16s%2Fg%2F11g8vnc35d!19sChIJvVMaCAeIlS0R28QvQ9GcDyI?authuser=0&hl=en&rclk=1"
         ),
         Place(
