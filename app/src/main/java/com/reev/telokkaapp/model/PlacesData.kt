@@ -1,7 +1,7 @@
 package com.reev.telokkaapp.model
 
 object PlacesData {
-    val places = listOf(
+    val dummyPlaces = listOf(
         Place(
             "1",
             "Sarang Burung Waterfall",

@@ -21,4 +21,6 @@ class DetailViewModel(private val repository: PlaceRepository): ViewModel() {
             _uiState.value = UiState.Success(repository.getPlacesById(placeId))
         }
     }
+
+
 }

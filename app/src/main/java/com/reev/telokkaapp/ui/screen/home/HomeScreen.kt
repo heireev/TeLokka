@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.reev.telokkaapp.di.Injection
 import com.reev.telokkaapp.ui.ViewModelFactory
+import com.reev.telokkaapp.ui.common.UiState
 import com.reev.telokkaapp.ui.components.Banner
 import com.reev.telokkaapp.ui.components.PlaceItem
 import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
@@ -33,24 +34,46 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
+    modifier: Modifier = Modifier,
+    navigateToDetail: (String) -> Unit,
+    viewModel: HomeViewModel = viewModel(
+        factory = ViewModelFactory(
+            Injection.provideRepository()
+        )
+    )
 ){
-    Column {
-        Banner()
-        PlaceItemList()
+    viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
+        when (uiState) {
+            is UiState.Loading -> {
+                viewModel.getAllPlaces()
+            }
+            is UiState.Success -> {
+                Column {
+                    Banner()
+                    PlaceItemList(
+                        modifier = modifier,
+                        navigateToDetail = navigateToDetail
+                    )
+                }
+            }
+            is UiState.Error -> {}
+        }
     }
+
 }
 
-@Preview(showBackground = true)
-@Composable
-fun TeLokkaAppPreview() {
-    TeLokkaAppTheme {
-        HomeScreen()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun TeLokkaAppPreview() {
+//    TeLokkaAppTheme {
+//        HomeScreen()
+//    }
+//}
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PlaceItemList(
+    navigateToDetail: (String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(
         factory = ViewModelFactory(
@@ -61,7 +84,9 @@ fun PlaceItemList(
     val groupedPlaces by viewModel.groupedPlaces.collectAsState()
 
     Box(
-        modifier = modifier.padding(horizontal = 16.dp).padding(top = 16.dp)
+        modifier = modifier
+            .padding(horizontal = 16.dp)
+            .padding(top = 16.dp)
     ) {
         val scope = rememberCoroutineScope()
         val listState = rememberLazyListState()
@@ -85,7 +110,9 @@ fun PlaceItemList(
                         modifier = Modifier
                             .fillMaxWidth()
                             .animateItemPlacement(tween(durationMillis = 100))
-                            .clickable {  }
+                            .clickable {
+                                navigateToDetail(place.id)
+                            }
                     )
                 }
             }

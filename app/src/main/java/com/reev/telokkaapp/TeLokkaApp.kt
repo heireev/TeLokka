@@ -21,7 +21,10 @@ import com.reev.telokkaapp.ui.screen.planning.PlanningScreen
 import com.reev.telokkaapp.ui.screen.profile.ProfileScreen
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.navArgument
+import com.reev.telokkaapp.ui.screen.detail.DetailScreen
 import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
 
 @Composable
@@ -41,13 +44,26 @@ fun TeLokkaApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(
+                    navigateToDetail = {placeId ->
+                        navController.navigate(Screen.DetailPlace.createRoute(placeId))
+                    }
+                )
             }
             composable(Screen.Planning.route) {
                 PlanningScreen()
             }
             composable(Screen.Profile.route) {
                 ProfileScreen()
+            }
+            composable(
+                route = Screen.DetailPlace.route,
+                arguments = listOf(navArgument("placeId") {type = NavType.StringType}) ,
+            ) {
+                val id = it.arguments?.getString("placeId") ?: ""
+                DetailScreen(
+
+                )
             }
         }
     }
