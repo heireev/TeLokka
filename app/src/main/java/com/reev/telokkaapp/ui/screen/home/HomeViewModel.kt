@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class HomeViewModel(private val repository: PlaceRepository): ViewModel(){
+
+    //buat grouping
     private val _groupedPlaces = MutableStateFlow(
         repository.getPlaces()
             .sortedBy { it.name }
@@ -17,9 +19,10 @@ class HomeViewModel(private val repository: PlaceRepository): ViewModel(){
     )
     val groupedPlaces: StateFlow<Map<Char, List<Place>>> get() = _groupedPlaces
 
+
+    //buat searching
     private val _query = mutableStateOf("")
     val query: State<String> get() = _query
-
     fun search(newQuery: String) {
         _query.value = newQuery
         _groupedPlaces.value = repository.searchPlaces(_query.value)

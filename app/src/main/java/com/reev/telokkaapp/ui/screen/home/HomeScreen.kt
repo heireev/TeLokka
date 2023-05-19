@@ -33,18 +33,13 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
+    navigateToDetail: (String) -> Unit,
 ){
     Column {
         Banner()
-        PlaceItemList()
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TeLokkaAppPreview() {
-    TeLokkaAppTheme {
-        HomeScreen()
+        PlaceItemList(
+            navigateToDetail = navigateToDetail
+        )
     }
 }
 
@@ -56,7 +51,8 @@ fun PlaceItemList(
         factory = ViewModelFactory(
             Injection.provideRepository()
         )
-    )
+    ),
+    navigateToDetail: (String) -> Unit,
 ) {
     val groupedPlaces by viewModel.groupedPlaces.collectAsState()
 
@@ -85,7 +81,9 @@ fun PlaceItemList(
                         modifier = Modifier
                             .fillMaxWidth()
                             .animateItemPlacement(tween(durationMillis = 100))
-                            .clickable {  }
+                            .clickable {
+                                navigateToDetail(place.id)
+                            }
                     )
                 }
             }

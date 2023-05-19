@@ -4,22 +4,20 @@ import com.reev.telokkaapp.model.Place
 import com.reev.telokkaapp.model.PlacesData
 
 class PlaceRepository {
-    private val places = mutableListOf<Place>()
     fun getPlaces(): List<Place> {
-        return PlacesData.places
+        return PlacesData.dummyPlaces
     }
 
     fun searchPlaces(query: String): List<Place>{
-        return PlacesData.places.filter {
+        return PlacesData.dummyPlaces.filter {
             it.name.contains(query, ignoreCase = true)
         }
     }
 
-    fun getPlacesById(placeId: String): Place{
-        return places.first {
-            it.id == placeId
-        }
+    fun getPlacesById(placeId: String): Place? {
+        return PlacesData.dummyPlaces.find { it.id == placeId }
     }
+
 
     companion object {
         @Volatile

@@ -10,9 +10,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class DetailViewModel(private val repository: PlaceRepository): ViewModel() {
-    private val _uiState: MutableStateFlow<UiState<Place>> =
+    private val _uiState: MutableStateFlow<UiState<List<Place>>> =
         MutableStateFlow(UiState.Loading)
-    val uiState: StateFlow<UiState<Place>>
+    val uiState: StateFlow<UiState<List<Place>>>
         get() = _uiState
 
     fun getPlaceById(placeId: String) {

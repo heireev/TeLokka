@@ -12,13 +12,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.reev.telokkaapp.R
-import com.reev.telokkaapp.data.PlaceRepository
+import com.reev.telokkaapp.di.Injection
 import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.screen.home.HomeViewModel
 
 @Composable
 fun Banner(
-    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory(PlaceRepository())),
+    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory(Injection.provideRepository())),
     modifier: Modifier = Modifier
 ){
     val query by viewModel.query
