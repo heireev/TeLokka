@@ -31,7 +31,7 @@ import com.reev.telokkaapp.R
 import com.reev.telokkaapp.di.Injection
 import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.common.UiState
-import com.reev.telokkaapp.ui.components.PlanningButton
+import com.reev.telokkaapp.ui.components.MyButton
 import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
 
 @Composable
@@ -43,7 +43,7 @@ fun DetailScreen(
         )
     ),
     navigateBack: () -> Unit,
-//    navigateToPlanning: () -> Unit
+    navigateToPlanning: (String) -> Unit
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
@@ -56,10 +56,12 @@ fun DetailScreen(
                 val data = uiState.data
                 if (data != null) {
                     DetailContent(
+                        data.id,
                         data.photoUrl,
                         data.name,
                         data.category,
                         onBackClick = navigateBack,
+                        navigateToPlanning = navigateToPlanning
                     )
                 }
             }
@@ -73,10 +75,12 @@ fun DetailScreen(
 
 @Composable
 fun DetailContent(
+    placeId: String,
     photoUrl: String,
     name: String,
     category: String,
     onBackClick: () -> Unit,
+    navigateToPlanning: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
@@ -137,10 +141,11 @@ fun DetailContent(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            PlanningButton(
+            MyButton(
                 text = stringResource(R.string.menu_plan),
                 onClick = {
                     // Lakukan Aksi disini untuk beralih ke halaman form planning
+                    navigateToPlanning(placeId)
                 }
             )
         }
@@ -153,9 +158,11 @@ fun DetailScreenPreview() {
     TeLokkaAppTheme {
         DetailContent(
             "",
+            "",
             "Pantai Losari",
             "Pantai",
-            onBackClick = {}
+            onBackClick = {},
+            navigateToPlanning = {}
         )
     }
 }

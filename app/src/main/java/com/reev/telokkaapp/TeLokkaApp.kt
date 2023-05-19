@@ -25,6 +25,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.reev.telokkaapp.ui.screen.detail.DetailScreen
+import com.reev.telokkaapp.ui.screen.formplanning.FormPlanningScreen
 import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
 
 @Composable
@@ -37,7 +38,10 @@ fun TeLokkaApp(
 
     Scaffold(
         bottomBar = {
-            if (currentRoute != Screen.DetailPlace.route) {
+            if (
+                currentRoute != Screen.DetailPlace.route &&
+                currentRoute != Screen.FormPlanPlace.route
+            ) {
                 BottomBar(navController)
             }
         },
@@ -70,6 +74,25 @@ fun TeLokkaApp(
                     placeId = id,
                     navigateBack = {
                         navController.navigateUp()
+                    },
+                    navigateToPlanning = { placeId ->
+                        navController.popBackStack()
+                        navController.navigate(Screen.FormPlanPlace.createRoute(placeId))
+                    }
+                )
+            }
+            composable(
+                route = Screen.FormPlanPlace.route,
+                arguments = listOf(navArgument("placeId") {type = NavType.StringType}),
+            ) {
+                val id = it.arguments?.getString("placeId") ?: "0"
+                FormPlanningScreen(
+                    placeId = id,
+                    navigateBack = {
+                        navController.navigateUp()
+                    },
+                    onPlanningSaved = {
+                        // Lakukan aksi untuk menyimpan plan
                     }
                 )
             }
