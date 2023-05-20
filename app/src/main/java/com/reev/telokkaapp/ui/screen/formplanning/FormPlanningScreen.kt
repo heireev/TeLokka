@@ -9,7 +9,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import com.reev.telokkaapp.model.PlanPlace
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -40,7 +39,6 @@ fun FormPlanningScreen(
         )
     ),
     navigateBack: () -> Unit,
-    onPlanningSaved: (PlanPlace) -> Unit,
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
@@ -57,7 +55,6 @@ fun FormPlanningScreen(
                         category = data.category,
                         photoUrl = data.photoUrl,
                         onBackClick = navigateBack,
-                        onPlanningSaved = onPlanningSaved
                     )
                 }
             }
@@ -75,7 +72,6 @@ fun FormPlanningContent(
     category: String,
     photoUrl: String,
     onBackClick: () -> Unit,
-    onPlanningSaved: (PlanPlace) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current

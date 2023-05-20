@@ -91,9 +91,6 @@ fun TeLokkaApp(
                     navigateBack = {
                         navController.navigateUp()
                     },
-                    onPlanningSaved = {
-                        // Lakukan aksi untuk menyimpan plan
-                    }
                 )
             }
         }
