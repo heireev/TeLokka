@@ -25,10 +25,10 @@ object PlacesData {
         ),
         Place(
             "3",
-            "Bukit Maddo",
-            "mountain",
-            "https://www.localguidesconnect.com/t5/image/serverpage/image-id/520631i04E06545B5DC0051/image-size/large?v=v2&px=999",
-            "https://www.google.com/maps/place/Bukit+Maddo/data=!4m7!3m6!1s0x2dbe25d9b9f868b7:0xa93b40def23fe9eb!8m2!3d-4.4761733!4d119.6365193!16s%2Fg%2F11fx8v2t4l!19sChIJt2j4udklvi0R6-k_8t5AO6k?authuser=0&hl=en&rclk=1"
+            "Pantai Ujung Batu",
+            "beach",
+            "https://lh5.googleusercontent.com/p/AF1QipPeO6fEN70d8tfbOK5ZgqN0RS7lKDFIy07rBWJ7=w80-h142-k-no",
+            "https://www.google.com/maps/place/Pantai+Ujung+Batu/data=!4m7!3m6!1s0x2dbe2807383b4a79:0xb6e27f1921603cab!8m2!3d-4.4083153!4d119.6018042!16s%2Fg%2F11b6sx4nl4!19sChIJeUo7OAcovi0RqzxgIRl_4rY?authuser=0&hl=en&rclk=1"
         ),
         Place(
             "4",
@@ -60,10 +60,10 @@ object PlacesData {
         ),
         Place(
             "8",
-            "Pantai Ujung Batu",
-            "beach",
-            "https://lh5.googleusercontent.com/p/AF1QipPeO6fEN70d8tfbOK5ZgqN0RS7lKDFIy07rBWJ7=w80-h142-k-no",
-            "https://www.google.com/maps/place/Pantai+Ujung+Batu/data=!4m7!3m6!1s0x2dbe2807383b4a79:0xb6e27f1921603cab!8m2!3d-4.4083153!4d119.6018042!16s%2Fg%2F11b6sx4nl4!19sChIJeUo7OAcovi0RqzxgIRl_4rY?authuser=0&hl=en&rclk=1"
+            "Bukit Maddo",
+            "mountain",
+            "https://www.localguidesconnect.com/t5/image/serverpage/image-id/520631i04E06545B5DC0051/image-size/large?v=v2&px=999",
+            "https://www.google.com/maps/place/Bukit+Maddo/data=!4m7!3m6!1s0x2dbe25d9b9f868b7:0xa93b40def23fe9eb!8m2!3d-4.4761733!4d119.6365193!16s%2Fg%2F11fx8v2t4l!19sChIJt2j4udklvi0R6-k_8t5AO6k?authuser=0&hl=en&rclk=1"
         ),
         Place(
             "9",
