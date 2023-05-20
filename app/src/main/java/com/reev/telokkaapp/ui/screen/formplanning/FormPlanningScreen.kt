@@ -124,6 +124,13 @@ fun FormPlanningContent(
             ) {
                 //buat nama wisata dan kategori
                 Text(
+                    text = "Set your plan too ...",
+                    style = MaterialTheme.typography.subtitle1.copy(
+                        fontWeight = FontWeight.ExtraBold
+                    ),
+                    color = MaterialTheme.colors.secondary
+                )
+                Text(
                     text = name,
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.h5.copy(
@@ -131,7 +138,7 @@ fun FormPlanningContent(
                     ),
                 )
                 Text(
-                    text = category,
+                    text = "Category : $category",
                     style = MaterialTheme.typography.subtitle1.copy(
                         fontWeight = FontWeight.ExtraBold
                     ),
