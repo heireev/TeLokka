@@ -8,7 +8,7 @@ class PlaceRepository {
         return PlacesData.dummyPlaces
     }
 
-    fun searchPlaces(query: String): List<Place>{
+    fun searchPlaces(query: String): List<Place> {
         return PlacesData.dummyPlaces.filter {
             it.name.contains(query, ignoreCase = true)
         }
@@ -23,11 +23,10 @@ class PlaceRepository {
         @Volatile
         private var instance: PlaceRepository? = null
 
-        fun getInstance(): PlaceRepository =
-            instance ?: synchronized(this) {
-                PlaceRepository().apply {
-                    instance = this
-                }
+        fun getInstance(): PlaceRepository = instance ?: synchronized(this) {
+            PlaceRepository().apply {
+                instance = this
             }
+        }
     }
 }

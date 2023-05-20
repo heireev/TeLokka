@@ -23,7 +23,6 @@ import com.reev.telokkaapp.di.Injection
 import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.common.UiState
 import com.reev.telokkaapp.ui.components.TwoButtonsRow
-import com.reev.telokkaapp.ui.screen.detail.DetailViewModel
 import com.vanpra.composematerialdialogs.MaterialDialog
 import com.vanpra.composematerialdialogs.datetime.date.datepicker
 import com.vanpra.composematerialdialogs.rememberMaterialDialogState
@@ -33,7 +32,7 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun FormPlanningScreen(
     placeId: String,
-    viewModel: DetailViewModel = viewModel(
+    viewModel: FormPlanningViewModel = viewModel(
         factory = ViewModelFactory(
             Injection.provideRepository()
         )
@@ -44,7 +43,6 @@ fun FormPlanningScreen(
         when (uiState) {
             is UiState.Loading -> {
                 viewModel.getPlaceById(placeId)
-                // Show loading indicator
                 CircularProgressIndicator()
             }
             is UiState.Success -> {
@@ -59,7 +57,6 @@ fun FormPlanningScreen(
                 }
             }
             is UiState.Error -> {
-                // Show error message
                 Text(text = uiState.errorMessage)
             }
         }
@@ -82,7 +79,6 @@ fun FormPlanningContent(
         mutableStateOf("")
     }
 
-    //variable untuk menyimpan waktu
     var pickedDate by remember {
         mutableStateOf(LocalDate.now())
     }
@@ -96,8 +92,7 @@ fun FormPlanningContent(
 
     val dateDialogState = rememberMaterialDialogState()
 
-    //atur komponen
-    Column(modifier = modifier){
+    Column(modifier = modifier) {
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
@@ -118,7 +113,6 @@ fun FormPlanningContent(
                     .padding(16.dp)
                     .fillMaxWidth()
             ) {
-                //buat nama wisata dan kategori
                 Text(
                     text = "Set your plan too ...",
                     style = MaterialTheme.typography.subtitle1.copy(
@@ -141,10 +135,8 @@ fun FormPlanningContent(
                     color = MaterialTheme.colors.secondary
                 )
 
-                //spacer
                 Spacer(modifier = Modifier.height(16.dp))
 
-                //Komponen untuk pick date
                 Button(onClick = {
                     dateDialogState.show()
                 }) {
@@ -155,7 +147,6 @@ fun FormPlanningContent(
                 //spacer
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Komponen input untuk judul dan deskripsi
                 TextField(
                     value = titleState.value,
                     onValueChange = { titleState.value = it },
@@ -167,7 +158,6 @@ fun FormPlanningContent(
                     label = { Text("Description") }
                 )
             }
-            //Buat dialog state untuk waktu tanggal
             MaterialDialog(
                 dialogState = dateDialogState,
                 buttons = {
@@ -185,17 +175,19 @@ fun FormPlanningContent(
                     initialDate = LocalDate.now(),
                     title = "Pick a date",
                     allowedDateValidator = { date ->
-                        date.isAfter(LocalDate.now()) // Memastikan tanggal yang dipilih lebih besar dari tanggal saat ini
+                        date.isAfter(LocalDate.now())
                     }
                 ) {
                     pickedDate = it
                 }
             }
         }
-        Spacer(modifier = Modifier
-            .fillMaxWidth()
-            .height(4.dp)
-            .background(Color.LightGray))
+        Spacer(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(4.dp)
+                .background(Color.LightGray)
+        )
         Column(
             modifier = Modifier.padding(16.dp)
         ) {

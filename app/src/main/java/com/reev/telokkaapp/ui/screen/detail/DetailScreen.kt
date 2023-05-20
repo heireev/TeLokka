@@ -36,20 +36,16 @@ import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
 
 @Composable
 fun DetailScreen(
-    placeId: String,
-    viewModel: DetailViewModel = viewModel(
+    placeId: String, viewModel: DetailViewModel = viewModel(
         factory = ViewModelFactory(
             Injection.provideRepository()
         )
-    ),
-    navigateBack: () -> Unit,
-    navigateToPlanning: (String) -> Unit
+    ), navigateBack: () -> Unit, navigateToPlanning: (String) -> Unit
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
             is UiState.Loading -> {
                 viewModel.getPlaceById(placeId)
-                // Show loading indicator
                 CircularProgressIndicator()
             }
             is UiState.Success -> {
@@ -67,7 +63,6 @@ fun DetailScreen(
                 }
             }
             is UiState.Error -> {
-                // Show error message
                 Text(text = uiState.errorMessage)
             }
         }
@@ -102,15 +97,13 @@ fun DetailContent(
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp))
                 )
-                Icon(
-                    imageVector = Icons.Default.ArrowBack,
+                Icon(imageVector = Icons.Default.ArrowBack,
                     contentDescription = stringResource(R.string.back),
                     modifier = Modifier
                         .padding(16.dp)
                         .clickable {
                             onBackClick()
-                        }
-                )
+                        })
             }
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -124,11 +117,9 @@ fun DetailContent(
                     ),
                 )
                 Text(
-                    text = "Category : $category",
-                    style = MaterialTheme.typography.subtitle1.copy(
+                    text = "Category : $category", style = MaterialTheme.typography.subtitle1.copy(
                         fontWeight = FontWeight.ExtraBold
-                    ),
-                    color = MaterialTheme.colors.secondary
+                    ), color = MaterialTheme.colors.secondary
                 )
                 Button(onClick = {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(mapUrl))
@@ -143,20 +134,18 @@ fun DetailContent(
                 )
             }
         }
-        Spacer(modifier = Modifier
-            .fillMaxWidth()
-            .height(4.dp)
-            .background(Color.LightGray))
+        Spacer(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(4.dp)
+                .background(Color.LightGray)
+        )
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            MyButton(
-                text = stringResource(R.string.menu_plan),
-                onClick = {
-                    // Lakukan Aksi disini untuk beralih ke halaman form planning
-                    navigateToPlanning(placeId)
-                }
-            )
+            MyButton(text = stringResource(R.string.menu_plan), onClick = {
+                navigateToPlanning(placeId)
+            })
         }
     }
 }
@@ -165,14 +154,12 @@ fun DetailContent(
 @Composable
 fun DetailScreenPreview() {
     TeLokkaAppTheme {
-        DetailContent(
-            "",
+        DetailContent("",
             "",
             "Pantai Losari",
             "Pantai",
             "",
             onBackClick = {},
-            navigateToPlanning = {}
-        )
+            navigateToPlanning = {})
     }
 }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class FormPlanningViewModel(private val repository: PlaceRepository): ViewModel()  {
+class FormPlanningViewModel(private val repository: PlaceRepository) : ViewModel() {
     private val _uiState: MutableStateFlow<UiState<List<Place>>> =
         MutableStateFlow(UiState.Loading)
     val uiState: StateFlow<UiState<List<Place>>>

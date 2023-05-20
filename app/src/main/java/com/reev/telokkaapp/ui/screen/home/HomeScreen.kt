@@ -21,20 +21,18 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.reev.telokkaapp.di.Injection
 import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.components.Banner
 import com.reev.telokkaapp.ui.components.PlaceItem
-import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
 import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
     navigateToDetail: (String) -> Unit,
-){
+) {
     Column {
         Banner()
         PlaceItemList(
@@ -57,7 +55,9 @@ fun PlaceItemList(
     val groupedPlaces by viewModel.groupedPlaces.collectAsState()
 
     Box(
-        modifier = modifier.padding(horizontal = 16.dp).padding(top = 16.dp)
+        modifier = modifier
+            .padding(horizontal = 16.dp)
+            .padding(top = 16.dp)
     ) {
         val scope = rememberCoroutineScope()
         val listState = rememberLazyListState()
@@ -106,9 +106,6 @@ fun PlaceItemList(
         }
     }
 }
-
-
-
 
 
 @Composable
