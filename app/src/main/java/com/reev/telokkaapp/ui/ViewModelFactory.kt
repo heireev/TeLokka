@@ -20,7 +20,7 @@ class ViewModelFactory(private val repository: PlaceRepository) :
         } else if (modelClass.isAssignableFrom(PlanningViewModel::class.java)) {
             return PlanningViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(FormPlanningViewModel::class.java)) {
-            return PlanningViewModel(repository) as T
+            return FormPlanningViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

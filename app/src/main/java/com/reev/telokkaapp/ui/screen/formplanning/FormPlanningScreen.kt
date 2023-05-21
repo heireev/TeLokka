@@ -22,7 +22,9 @@ import coil.compose.AsyncImage
 import com.reev.telokkaapp.di.Injection
 import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.common.UiState
+import com.reev.telokkaapp.ui.components.MyTextField
 import com.reev.telokkaapp.ui.components.TwoButtonsRow
+import com.reev.telokkaapp.ui.screen.detail.DetailViewModel
 import com.vanpra.composematerialdialogs.MaterialDialog
 import com.vanpra.composematerialdialogs.datetime.date.datepicker
 import com.vanpra.composematerialdialogs.rememberMaterialDialogState
@@ -147,16 +149,17 @@ fun FormPlanningContent(
                 //spacer
                 Spacer(modifier = Modifier.height(16.dp))
 
-                TextField(
-                    value = titleState.value,
-                    onValueChange = { titleState.value = it },
-                    label = { Text("Title of Activity") }
-                )
-                TextField(
-                    value = descState.value,
-                    onValueChange = { descState.value = it },
-                    label = { Text("Description") }
-                )
+                MyTextField(
+                    query = titleState.value,
+                    onQueryChange = { titleState.value = it },
+                    label = { Text("Title of Activity") },
+                    singleLine = true
+                 )
+                MyTextField(
+                    query = descState.value,
+                    onQueryChange = { descState.value = it },
+                    label = { Text("Desc of Activity") }
+                 )
             }
             MaterialDialog(
                 dialogState = dateDialogState,
