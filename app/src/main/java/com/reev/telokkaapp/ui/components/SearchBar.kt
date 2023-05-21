@@ -24,6 +24,7 @@ fun SearchBar(
     TextField(
         value = query,
         onValueChange = onQueryChange,
+        singleLine = true,
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
