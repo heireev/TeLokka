@@ -89,7 +89,8 @@ fun TeLokkaApp(
                 FormPlanningScreen(
                     placeId = id,
                     navigateBack = {
-                        navController.navigateUp()
+                        navController.popBackStack()
+                        navController.navigate(Screen.DetailPlace.createRoute(id))
                     },
                 )
             }
