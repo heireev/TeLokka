@@ -19,15 +19,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.reev.telokkaapp.data.source.local.room.planplacedatabase.PlanningData
-import com.reev.telokkaapp.data.source.local.room.planplacedatabase.PlanningDatabase
 import com.reev.telokkaapp.di.Injection
 import com.reev.telokkaapp.model.Place
 import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.common.UiState
 import com.reev.telokkaapp.ui.components.MyTextField
 import com.reev.telokkaapp.ui.components.TwoButtonsRow
-import com.reev.telokkaapp.ui.screen.detail.DetailViewModel
 import com.vanpra.composematerialdialogs.MaterialDialog
 import com.vanpra.composematerialdialogs.datetime.date.datepicker
 import com.vanpra.composematerialdialogs.rememberMaterialDialogState
