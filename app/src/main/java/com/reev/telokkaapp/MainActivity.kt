@@ -12,15 +12,8 @@ import com.reev.telokkaapp.data.source.local.room.planplacedatabase.PlanningData
 import com.reev.telokkaapp.ui.theme.TeLokkaAppTheme
 
 class MainActivity : ComponentActivity() {
-    private lateinit var database: PlanningDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        database = Room.databaseBuilder(
-            applicationContext,
-            PlanningDatabase::class.java,
-            "te_lokka_db"
-        ).build()
 
         setContent {
             TeLokkaAppTheme {
