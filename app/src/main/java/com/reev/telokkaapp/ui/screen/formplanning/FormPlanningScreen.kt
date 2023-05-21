@@ -19,7 +19,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
+import com.reev.telokkaapp.data.source.local.room.planplacedatabase.PlanningData
+import com.reev.telokkaapp.data.source.local.room.planplacedatabase.PlanningDatabase
 import com.reev.telokkaapp.di.Injection
+import com.reev.telokkaapp.model.Place
 import com.reev.telokkaapp.ui.ViewModelFactory
 import com.reev.telokkaapp.ui.common.UiState
 import com.reev.telokkaapp.ui.components.MyTextField
@@ -51,6 +54,7 @@ fun FormPlanningScreen(
                 val data = uiState.data
                 if (data != null) {
                     FormPlanningContent(
+                        place = data,
                         name = data.name,
                         category = data.category,
                         photoUrl = data.photoUrl,
@@ -67,6 +71,7 @@ fun FormPlanningScreen(
 
 @Composable
 fun FormPlanningContent(
+    place: Place,
     name: String,
     category: String,
     photoUrl: String,
@@ -207,3 +212,20 @@ fun FormPlanningContent(
         }
     }
 }
+
+//private fun savePlanningData(database: PlanningDatabase) {
+//    date = pickDate,
+//    title = titleState,
+//    desc = descState,
+//    placeId = place.id,
+//    placeName = place.name,
+//    placeCategory = place.category,
+//    placePhotoUrl = place.photoUrl,
+//    placeMapUrl = place.mapUrl,
+//    )
+//
+//    // Menyimpan data ke database menggunakan DAO
+//    GlobalScope.launch {
+//        database.planningDataDao().insertPlanningData(data)
+//    }
+//}
